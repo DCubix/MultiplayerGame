@@ -5,7 +5,7 @@ def alert(msg):
 	sys.exit(1)
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-s.setblocking(False)
+#s.setblocking(False)
 s.sendto(
 	pickle.dumps((6, "TESTING!")),
 	("191.252.103.220", 1360)
