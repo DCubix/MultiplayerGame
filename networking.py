@@ -90,7 +90,7 @@ class Server:
 					), exceptions=[who])
 				elif mtype == TYPE_TEST:
 					print("Testing Socket! Message: " + data)
-					self.broadcast((TYPE_TEST, "MSG: " + data))
+					self.sock.sendto(pickle.dumps((TYPE_TEST, "MSG: " + data)), addr)
 			except:
 				pass
 
