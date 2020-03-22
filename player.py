@@ -54,8 +54,8 @@ class BasePlayer(Entity):
 		elif self.state == WALKING_TO_TARGET:
 			frame = self.walkDirections[self.direction] + (self.timer.frame % 7)
 
-		ren.tile(self.spr, x, y, frame + 8, config=(8, 20), origin=(0.5, 0.86))
-		ren.tile(self.spr, x, y - (64 * 0.85), frame, config=(8, 20), origin=(0.5, 1.0))
+		ren.tile(self.spr, x, y, frame + 8, config=(8, 20), origin=(0.5, 0.87))
+		ren.tile(self.spr, x, y - (31 * 0.87), frame, config=(8, 20), origin=(0.5, 1.0))
 
 	def onUpdate(self, dt):
 		self.timer.tick(dt)

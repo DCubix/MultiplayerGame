@@ -38,8 +38,8 @@ class Game(GameAdapter, Client):
 
 		self.tile = Engine.loadImage("tile", "assets/blocks.png")
 
-		self.init()
-		# self.init(host="localhost")
+		# self.init()
+		self.init(host="localhost")
 
 		self.send((
 			TYPE_CONNECT,
@@ -47,9 +47,7 @@ class Game(GameAdapter, Client):
 				"name": self.player.name,
 				"x": self.player.x,
 				"y": self.player.y,
-				"z": self.player.z,
-				"direction": self.player.direction,
-				"state": self.player.state
+				"z": self.player.z
 			})
 		))
 
@@ -112,7 +110,7 @@ class Game(GameAdapter, Client):
 		# ox, oy = renderer.camera()
 		for y in range(10):
 			for x in range(10):
-				cx, cy = toScreen(x * 64, y * 64, 0)
+				cx, cy = toScreen(x * 32, y * 32, 0)
 				renderer.tile(self.tile, cx, cy, 8, config=(8, 16), origin=(0.5, 0.5))
 				#pygame.draw.rect(renderer.target, (255, 0, 0), (cx-ox, cy-oy, 128, 64), 1)
 
@@ -127,9 +125,9 @@ class Game(GameAdapter, Client):
 			if pl.tag != "player": continue
 			if pl.name == self.player.name: continue
 			lx, ly = toScreen(pl.x, pl.y, pl.z)
-			renderer.text(pl.name, lx - renderer.textWidth(pl.name) / 2, ly - 128, color=(200,200,200,255))
+			renderer.text(pl.name, lx - renderer.textWidth(pl.name) / 2, ly - 76, color=(200,200,200,255))
 
-		renderer.text(self.player.name, px - renderer.textWidth(self.player.name) / 2, py - 128, color=(20,200,50,255))
+		renderer.text(self.player.name, px - renderer.textWidth(self.player.name) / 2, py - 76, color=(20,200,50,255))
 		
 		renderer.applyCamera = False
 		boxheight = 16 + renderer.font.get_height() // 16
