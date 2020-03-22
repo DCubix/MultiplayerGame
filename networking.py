@@ -205,4 +205,5 @@ class Client:
 		self.sock.close()
 
 if __name__ == "__main__":
-	serv = Server(host="localhost")
+	# serv = Server(host="localhost")
+	serv = Server()
