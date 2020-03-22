@@ -4,7 +4,8 @@ TYPE_PLAYER_CHANGE = 1
 TYPE_MESSAGE = 2
 TYPE_CONNECT = 3
 TYPE_DISCONNECT = 4
-TYPE_ERROR = 5
+TYPE_ERROR = 5,
+TYPE_TEST = 6
 
 ERR_NAME_TAKEN = 1
 
@@ -87,6 +88,9 @@ class Server:
 						TYPE_PLAYER_CHANGE,
 						data
 					), exceptions=[who])
+				elif mtype == TYPE_TEST:
+					print("Testing Socket! Message: " + data)
+					self.broadcast((TYPE_TEST, "MSG: " + data))
 			except:
 				pass
 
