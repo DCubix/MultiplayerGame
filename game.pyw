@@ -38,7 +38,8 @@ class Game(GameAdapter, Client):
 
 		self.tile = Engine.loadImage("tile", "assets/blocks.png")
 
-		self.init(host="localhost")
+		self.init()
+		# self.init(host="localhost")
 
 		self.send((
 			TYPE_CONNECT,
