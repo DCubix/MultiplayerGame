@@ -18,7 +18,7 @@ class User:
 		self.direction = 0
 
 class Server:
-	def __init__(self, host="", port=58080):
+	def __init__(self, host="", port=1360):
 		self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 		self.sock.setblocking(False)
 		self.sock.bind((host, port))
@@ -99,7 +99,7 @@ def new_thread(proc, args=()):
 	th.start()
 
 class Client:
-	def init(self, host="localhost", port=58080):
+	def init(self, host="191.252.103.220", port=1360):
 		self.addr = (host, port)
 		self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 		self.sock.setblocking(False)
