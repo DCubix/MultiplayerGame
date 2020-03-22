@@ -19,7 +19,7 @@ class User:
 		self.direction = 0
 
 class Server:
-	def __init__(self, host="localhost", port=11360):
+	def __init__(self, host="0.0.0.0", port=11360):
 		self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 		self.sock.setblocking(False)
 		self.sock.bind((host, port))
