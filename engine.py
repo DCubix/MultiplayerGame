@@ -48,7 +48,7 @@ class Engine:
 
 		pygame.init()
 
-		screen = pygame.display.set_mode(size)
+		screen = pygame.display.set_mode(size, depth=32)
 		pygame.display.set_caption(title)
 
 		renderer = Renderer(screen)
